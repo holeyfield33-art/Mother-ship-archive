@@ -2,11 +2,11 @@
 
 Byte archive for **MOTHERSHIP-001**, a multi-agent vulnerability-intelligence collection, October 29-31, 2026. The coordinator was ChatGPT; the five agents were Manus, Grok, Perplexity, DeepSeek and Gemini.
 
-This repository holds **only preserved public source data and the agents' collection reports**, published as GitHub release assets. Analysis, class studies and templates live elsewhere and aren't here.
+This repository holds **only preserved public source data and the agents' collection reports**. Packages under 100 MB are committed in `packages/<tag>/`. C-002 (3.66 GB) is published as two release parts under the `c002` tag. Analysis, class studies and templates live elsewhere and aren't here.
 
-## Releases
+## Packages
 
-| Tag | Asset | Cycles | Producer | Bytes | SHA-256 |
+| Folder / release | File | Cycles | Producer | Bytes | SHA-256 |
 |---|---|---|---|---:|---|
 | `d004` | `MOTHERSHIP_D004_ECOSYSTEM_EVIDENCE.zip` | D-003 → D-004 | Manus (fetch specs from DeepSeek) | 22,742,076 | `8bf7a6311e32ce803efb1cb6531c1a63a53eda2732a38d6bab486da6c52c3a7e` |
 | `c003` | `MOTHERSHIP_C003_RESULTS.zip` | C-003 | Manus | 59,205 | `91a5c5683d75c4b22350e1269dcfcf25275cbdb1267ccefb75abe31b321571c2` |
@@ -20,6 +20,7 @@ This repository holds **only preserved public source data and the agents' collec
 `SHA256SUMS` lists the same hashes. Verify after download:
 
 ```bash
+# from the folder holding the files
 sha256sum -c SHA256SUMS --ignore-missing
 # C-002: rejoin the parts first
 cat MOTHERSHIP_C002_HANDOFF.tar.gz.part00 MOTHERSHIP_C002_HANDOFF.tar.gz.part01 > MOTHERSHIP_C002_HANDOFF.tar.gz

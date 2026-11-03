@@ -1,6 +1,6 @@
 # Sources and attribution
 
-The release assets contain copies of public data from the sources below. **This archive doesn't relicense anything.** Each source's own terms apply to its material. Where we've checked a source's license, it's stated; otherwise it's marked **not verified**, and you should check the source before reusing its material.
+The packages and release assets contain copies of public data from the sources below. **This archive doesn't relicense anything.** Each source's own terms apply to its material. Where we've checked a source's license, it's stated; otherwise it's marked **not verified**, and you should check the source before reusing its material.
 
 | Source | Where it appears | Terms |
 |---|---|---|
