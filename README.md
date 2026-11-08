@@ -1,8 +1,23 @@
 # Mother-ship-archive
 
-Byte archive for **MOTHERSHIP-001**, a multi-agent vulnerability-intelligence collection, October 29-31, 2026. The coordinator was ChatGPT; the five agents were Manus, Grok, Perplexity, DeepSeek and Gemini.
+**Immutable byte archive for MOTHERSHIP-001** — multi-agent vulnerability-intelligence collection, 29–31 October 2026.
 
-This repository holds **only preserved public source data and the agents' collection reports**. Packages under 100 MB are committed in `packages/<tag>/`. C-002 (3.66 GB) is published as two release parts under the `c002` tag. Analysis, class studies and templates live elsewhere and aren't here.
+Coordinator: ChatGPT. Agents: Manus, Grok, Perplexity, DeepSeek, Gemini.
+
+This repository holds **only preserved public source data and the agents' collection reports**. Packages under 100 MB are committed in `packages/<tag>/`. C-002 (3.66 GB) is published as two release parts under the `c002` tag. Analysis, class studies and templates live elsewhere and are not here.
+
+> **GitHub description (for repo settings):** Immutable byte archive for MOTHERSHIP-001 (Oct 2026 multi-agent vuln-intel collection). Evidence only — no analysis. See NOTICE.md for source terms.
+
+## Machine-readable inventory (source of truth)
+
+| File | Role |
+|---|---|
+| [manifest.json](manifest.json) | Package id, path, cycles, producer, bytes, SHA-256, storage |
+| [SHA256SUMS](SHA256SUMS) | Checksums for `sha256sum -c` |
+| [CYCLES.md](CYCLES.md) | Cycle coverage, agent footprint, completeness |
+| [VERIFICATION.md](VERIFICATION.md) | Integrity + upstream check receipt (operator-run) |
+| [NOTICE.md](NOTICE.md) | Sources and terms (no relicense) |
+| [scripts/rejoin-c002.sh](scripts/rejoin-c002.sh) | Rejoin C-002 parts, check size + SHA-256 |
 
 ## Packages
 
@@ -17,20 +32,26 @@ This repository holds **only preserved public source data and the agents' collec
 | `p004` | `MOTHERSHIP_P004_HISTORICAL_EVIDENCE_BUNDLE.zip` | P-004 | Manus | 298,434 | `220a48af59d649dfd1dfdb3eab4b4201ea93bbc8bae6782710fc135148119fb6` |
 | `c002` | `MOTHERSHIP_C002_HANDOFF.tar.gz.part00`, `.part01` | C-002 | Manus | 3,659,552,713 (whole) | `14738da2fc7d0dd0ea9cb36f9dd3b7b618344fbc3fe3103d8719c8d4c4dabf62` (whole) |
 
-`SHA256SUMS` lists the same hashes. Verify after download:
+## Verify
 
 ```bash
-# from the folder holding the files
+# Git-sized packages (filenames as in SHA256SUMS; run from directory holding the zips or adjust paths)
 sha256sum -c SHA256SUMS --ignore-missing
-# C-002: rejoin the parts first
-cat MOTHERSHIP_C002_HANDOFF.tar.gz.part00 MOTHERSHIP_C002_HANDOFF.tar.gz.part01 > MOTHERSHIP_C002_HANDOFF.tar.gz
+
+# C-002: download both release assets under tag c002, then
+./scripts/rejoin-c002.sh /path/to/dir/with/parts
 ```
 
-Original filenames and each package's per-file hashes are recorded in the MOTHERSHIP manifests.
+Original filenames and each package's per-file hashes are recorded in the MOTHERSHIP manifests inside the archives.
 
 ## Provenance caveats
 
-- A matching hash proves the bytes haven't changed since the agent produced them. It doesn't prove the agent's claims about them are correct. Where packages were checked against outside sources (PyPA and RustSec commits on GitHub, FreeBSD advisory pages, the CISA KEV catalog), that's recorded in the manifests.
-- Crosswalk tables link identifiers only. A shared ID doesn't mean two records describe the same root cause or scope.
+- A matching hash proves the bytes have not changed since the agent produced them. It does not prove the agent's claims about them are correct.
+- Where packages were checked against outside sources (PyPA and RustSec commits on GitHub, FreeBSD advisory pages, the CISA KEV catalog), that is recorded in the in-package manifests. Top-level re-check status lives in [VERIFICATION.md](VERIFICATION.md) (initially NOT_RUN until an operator runs it).
+- Crosswalk tables link identifiers only. A shared ID does not mean two records describe the same root cause or scope.
 
-See [NOTICE.md](NOTICE.md) for sources and attribution.
+See [NOTICE.md](NOTICE.md) for sources and attribution. This archive does not relicense upstream material.
+
+## License / terms
+
+There is no single project license that covers upstream advisory data. Use of package contents is governed by each source's terms as listed in NOTICE.md. Repository scaffolding (README, manifest, scripts, verification text) is provided for archival use with the collection; do not treat NOTICE silence as permission to redistribute third-party feeds.
