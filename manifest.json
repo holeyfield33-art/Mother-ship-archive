@@ -1,1 +1,125 @@
-PLACEHOLDER
+{
+  "archive_id": "MOTHERSHIP-001",
+  "title": "Mother-ship-archive",
+  "description": "Immutable byte archive for MOTHERSHIP-001 multi-agent vulnerability-intelligence collection (29–31 October 2026). Evidence and agent collection reports only; analysis lives elsewhere.",
+  "collection_window": {
+    "start": "2026-10-29",
+    "end": "2026-10-31"
+  },
+  "coordinator": "ChatGPT",
+  "agents": ["Manus", "Grok", "Perplexity", "DeepSeek", "Gemini"],
+  "schema_version": "1.0",
+  "generated": "2026-11-08",
+  "source_of_truth": "This manifest is the machine-readable inventory. README.md is the human view. SHA256SUMS remains the checksum file for sha256sum -c.",
+  "packages": [
+    {
+      "id": "d004",
+      "file": "MOTHERSHIP_D004_ECOSYSTEM_EVIDENCE.zip",
+      "path": "packages/d004/MOTHERSHIP_D004_ECOSYSTEM_EVIDENCE.zip",
+      "cycles": ["D-003", "D-004"],
+      "producer": "Manus",
+      "producer_note": "Fetch specs from DeepSeek",
+      "bytes": 22742076,
+      "sha256": "8bf7a6311e32ce803efb1cb6531c1a63a53eda2732a38d6bab486da6c52c3a7e",
+      "storage": "git",
+      "release_tag": null
+    },
+    {
+      "id": "c003-results",
+      "file": "MOTHERSHIP_C003_RESULTS.zip",
+      "path": "packages/c003/MOTHERSHIP_C003_RESULTS.zip",
+      "cycles": ["C-003"],
+      "producer": "Manus",
+      "producer_note": null,
+      "bytes": 59205,
+      "sha256": "91a5c5683d75c4b22350e1269dcfcf25275cbdb1267ccefb75abe31b321571c2",
+      "storage": "git",
+      "release_tag": null
+    },
+    {
+      "id": "c003-verification",
+      "file": "MOTHERSHIP_C003_VERIFICATION.zip",
+      "path": "packages/c003/MOTHERSHIP_C003_VERIFICATION.zip",
+      "cycles": ["C-003"],
+      "producer": "Manus",
+      "producer_note": null,
+      "bytes": 1321581,
+      "sha256": "2b6de56736ef1b94917a243f66586f7521139477bcb12312e99281656e3dafb6",
+      "storage": "git",
+      "release_tag": null
+    },
+    {
+      "id": "grok-x004",
+      "file": "MOTHERSHIP_GROK_D1_X002_X004.zip",
+      "path": "packages/grok-x004/MOTHERSHIP_GROK_D1_X002_X004.zip",
+      "cycles": ["D1", "X-002", "X-004"],
+      "producer": "Grok",
+      "producer_note": null,
+      "bytes": 4464077,
+      "sha256": "2f85e6a077840255f9e1bf91c4d5bd4543272fd9a81014b5e1dfa3f35c461552",
+      "storage": "git",
+      "release_tag": null
+    },
+    {
+      "id": "grok-x002",
+      "file": "MOTHERSHIP_GROK_D1_X002.zip",
+      "path": "packages/grok-x002/MOTHERSHIP_GROK_D1_X002.zip",
+      "cycles": ["D1", "X-002"],
+      "producer": "Grok",
+      "producer_note": "Earlier snapshot relative to grok-x004",
+      "bytes": 4449135,
+      "sha256": "bd4ac028123229aaac3a075431e5e8a7c04ebd1d65847474a3f4e202065b2721",
+      "storage": "git",
+      "release_tag": null
+    },
+    {
+      "id": "p003",
+      "file": "MOTHERSHIP_P003_HISTORICAL_EVIDENCE.zip",
+      "path": "packages/p003/MOTHERSHIP_P003_HISTORICAL_EVIDENCE.zip",
+      "cycles": ["P-003"],
+      "producer": "Perplexity",
+      "producer_note": null,
+      "bytes": 15595,
+      "sha256": "734c30752d0396d420f18141d5d75f3f8b408baac6fcaf074d2a08cfbbf61925",
+      "storage": "git",
+      "release_tag": null
+    },
+    {
+      "id": "p004",
+      "file": "MOTHERSHIP_P004_HISTORICAL_EVIDENCE_BUNDLE.zip",
+      "path": "packages/p004/MOTHERSHIP_P004_HISTORICAL_EVIDENCE_BUNDLE.zip",
+      "cycles": ["P-004"],
+      "producer": "Manus",
+      "producer_note": null,
+      "bytes": 298434,
+      "sha256": "220a48af59d649dfd1dfdb3eab4b4201ea93bbc8bae6782710fc135148119fb6",
+      "storage": "git",
+      "release_tag": null
+    },
+    {
+      "id": "c002",
+      "file": "MOTHERSHIP_C002_HANDOFF.tar.gz",
+      "path": null,
+      "cycles": ["C-002"],
+      "producer": "Manus",
+      "producer_note": "Split release assets; rejoin before hashing",
+      "bytes": 3659552713,
+      "sha256": "14738da2fc7d0dd0ea9cb36f9dd3b7b618344fbc3fe3103d8719c8d4c4dabf62",
+      "storage": "release",
+      "release_tag": "c002",
+      "release_assets": [
+        "MOTHERSHIP_C002_HANDOFF.tar.gz.part00",
+        "MOTHERSHIP_C002_HANDOFF.tar.gz.part01"
+      ],
+      "part_bytes": {
+        "part00": 1900000000,
+        "part01": 1759552713
+      }
+    }
+  ],
+  "not_in_archive": {
+    "analysis_class_studies_templates": "Elsewhere; not this repository. See CYCLES.md consumers section when linked.",
+    "deepseek_standalone_package": "No dedicated DeepSeek-only package; DeepSeek contributed specs consumed in D-004 via Manus.",
+    "gemini_standalone_package": "No dedicated Gemini package archived under packages/ in this freeze."
+  }
+}
